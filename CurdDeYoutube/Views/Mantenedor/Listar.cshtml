@@ -1,0 +1,46 @@
+﻿@model List<ContactoModel>
+
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Listar Contacto
+    </div>
+        <a asp-action="Guardar" asp-controller="Mantenedor" class="border-2 m-4 w-1/4 rounded-md border-green-500 bg-green-200 p-2 text-center font-bold">Crear Nuevo Contacto</a>
+        <hr />
+        <br />
+
+	<table class="table-sm table">
+		
+		<thead class="">
+			
+			<th>Nombre</th>
+			<th>Telefono</th>
+			<th>Correo</th>
+			<th>Acciones</th>
+
+		</thead>
+
+		<tbody>
+			@foreach(var objeto  in Model)
+			{
+				<tr>
+					<td>@objeto.Nombre</td>
+					<td>@objeto.Telefono</td>
+					<td>@objeto.Correo</td>
+					<td>
+						<a asp-action="Editar" asp-controller="Mantenedor" asp-route-idContacto="@objeto.IDContacto" class="border-2 rounded-lg border-blue-500 bg-blue-600 p-1 text-white transition-all duration-100 hover:-translate-y-1 hover:shadow-md hover:shadow-blue-500 hover:text-white" >Editar</a>
+						<a asp-action="Eliminar" asp-controller="Mantenedor" asp-route-idContacto="@objeto.IDContacto" class="border-2 rounded-lg border-red-500 bg-red-600 p-1 text-white transition-all duration-100 hover:-translate-y-1 hover:shadow-md hover:shadow-red-500 hover:text-white">Eliminar</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+   
+    </div>
+
+</div>
+

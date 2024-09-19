@@ -1,0 +1,43 @@
+﻿@model ContactoModel;
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        Crear Contacto
+    </div>
+
+    <div class="card-body">
+        <form asp-action="Editar" asp-controller="Mantenedor" method="post">
+            <input asp-for="IDContacto" type="hidden" class="form-control">
+            <span asp-validation-for="IDContacto" class="text-red-500"></span>
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input asp-for="Nombre" type="text" class="form-control">
+                <span asp-validation-for="Nombre" class="text-red-500"></span>
+
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Telefono</label>
+                <input asp-for="Telefono" type="text" class="form-control">
+                <span asp-validation-for="Telefono" class="text-red-500"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Correo</label>
+                <input asp-for="Correo" type="text" class="form-control">
+                <span asp-validation-for="Correo" class="text-red-500"></span>
+            </div>
+            <div class="">
+                <button type="submit" class="border-2 rounded-md border-black bg-cyan-400 p-2 font-bold transition duration-75 hover:text-blue-600 hover:-translate-y-1 hover:shadow-sm">Guardar</button>
+                <a asp-action="Listar" asp-controller="Mantenedor" class="border-2 rounded-md border-black bg-yellow-400 p-2 font-bold transition duration-75 hover:-translate-y-1 hover:shadow-sm">Volver A la Lista</a>
+            </div>
+
+
+        </form>
+    </div>
+</div>
